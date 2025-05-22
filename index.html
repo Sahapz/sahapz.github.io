@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
+    <title>Sahap</title>
     <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/923282090861142016/1375110353368911912/Sahap_profile_pictrue_PNG.png?ex=68307ed0&is=682f2d50&hm=35202c04dfaf3120258eb2450e8a6332103dff3dbc2195fa753793a0c544ee48&" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -18,10 +18,10 @@
             <h1 class="text-5xl font-semibold text-gray-200">Tere, ma olen <span class="text-indigo-700">Ander</span>!</h1>   
         </div>
         <div class="py-10 flex flex-grow">
-            <input type="password" placeholder="Kood" x-model="code" class="block w-full p-2 text-gray-200 border border-gray-700 rounded-lg bg-gray-800 text-xs focus:ring-blue-500 focus:border-blue-500">
+            <input type="password" placeholder="Kood" x-model="code" class="block w-full p-2 text-gray-200 border border-gray-700 rounded-lg bg-gray-800 text-lg focus:ring-blue-500 focus:border-blue-500">
             <div x-show="code === '32'" class="flex flex-grow items-center"><i class="fa-solid fa-shake fa-arrow-down ml-2 text-xl text-indigo-600"></i></div>
         </div>
-        <div x-show="code !== '32'" class="py-10">
+        <div x-show="code === '32'" class="py-10">
             <h1 class="text-2xl font-bold text-indigo-500 uppercase text-center">Portfoolio</h1>
 
             <div class="grid grid-cols-2 gap-3">
@@ -36,7 +36,7 @@
                 </div>
                 
                 <div class="border-4 border-gray-900 rounded-lg">
-                    <iframe width="654" height="327" src="https://www.youtube.com/embed/-JPcmkc65MI?si=cDcD1RXhwF-ha5_A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe class="w-full" width="654" height="327" src="https://www.youtube.com/embed/-JPcmkc65MI?si=cDcD1RXhwF-ha5_A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
 
