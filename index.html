@@ -21,22 +21,26 @@
             <input type="password" placeholder="Kood" x-model="code" class="block w-full p-2 text-gray-200 border border-gray-700 rounded-lg bg-gray-800 text-lg focus:ring-blue-500 focus:border-blue-500">
             <div x-show="code === '32'" class="flex flex-grow items-center"><i class="fa-solid fa-shake fa-arrow-down ml-2 text-xl text-indigo-600"></i></div>
         </div>
-        <div x-show="code === '32'" class="py-10">
+        <div x-show="code !== '32'" class="py-10">
             <h1 class="text-2xl font-bold text-indigo-500 uppercase text-center">Portfoolio</h1>
 
             <div class="grid grid-cols-2 gap-3">
-                <div class="border-4 border-gray-900 rounded-lg">
-                    <img class="h-82" src="https://cdn.discordapp.com/attachments/1292116040850997380/1292117607012368426/image.png?ex=6830794b&is=682f27cb&hm=74401c4a0b1f4ff0e624c3decca2d0089f2b8915245b4e0a4e99598f20cb0007&" alt="">
+                <div class="">
+                    <span class="text-gray-200">FiveM platformi serveri proofili haldusleht</span>
+                    <img class="h-82 border-4 border-gray-900 rounded-lg" src="https://cdn.discordapp.com/attachments/1292116040850997380/1292117607012368426/image.png?ex=6830794b&is=682f27cb&hm=74401c4a0b1f4ff0e624c3decca2d0089f2b8915245b4e0a4e99598f20cb0007&" alt="">
                 </div>
-                <div class="border-4 border-gray-900 rounded-lg">
-                    <img class="h-82 w-full" src=" https://cdn.discordapp.com/attachments/1292116040850997380/1300620398580338729/image.png?ex=68306ce3&is=682f1b63&hm=94c150af20e27cf1a49f1304ec13898bda57a0ec8c2ccef9e889c7adeac19e37&" alt="">
+                <div class="">
+                    <span class="text-gray-200">FiveM platformi serveri puksiiritöö User Interface.</span>
+                    <img class="h-82 w-full border-4 border-gray-900 rounded-lg" src=" https://cdn.discordapp.com/attachments/1292116040850997380/1300620398580338729/image.png?ex=68306ce3&is=682f1b63&hm=94c150af20e27cf1a49f1304ec13898bda57a0ec8c2ccef9e889c7adeac19e37&" alt="">
                 </div>
-                <div class="border-4 border-gray-900 rounded-lg">
-                    <img class="h-82" src="https://cdn.discordapp.com/attachments/923282090861142016/1375107882777051157/image.png?ex=68307c83&is=682f2b03&hm=bf210a1d75f41823ee186b0ff4aa92f0df5a204b11f97f371924784f5413e93f&" alt="">
+                <div class="">
+                    <span class="text-gray-200">Discord serveri logo ja rollide ikoonid.</span>
+                    <img class="h-82 border-4 border-gray-900 rounded-lg" src="https://cdn.discordapp.com/attachments/923282090861142016/1375107882777051157/image.png?ex=68307c83&is=682f2b03&hm=bf210a1d75f41823ee186b0ff4aa92f0df5a204b11f97f371924784f5413e93f&" alt="">
                 </div>
                 
-                <div class="border-4 border-gray-900 rounded-lg">
-                    <iframe class="w-full" width="654" height="327" src="https://www.youtube.com/embed/-JPcmkc65MI?si=cDcD1RXhwF-ha5_A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="">
+                    <span class="text-gray-200">Mänguclipide video.</span>
+                    <iframe class="w-full border-4 border-gray-900 rounded-lg" width="654" height="327" src="https://www.youtube.com/embed/-JPcmkc65MI?si=cDcD1RXhwF-ha5_A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
 
