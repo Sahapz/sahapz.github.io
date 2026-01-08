@@ -6,47 +6,167 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sahap</title>
     <link rel="stylesheet" href="./style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="https://cdn.discordapp.com/attachments/923282090861142016/1375110353368911912/Sahap_profile_pictrue_PNG.png?ex=68307ed0&is=682f2d50&hm=35202c04dfaf3120258eb2450e8a6332103dff3dbc2195fa753793a0c544ee48&" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
-  <body class="bg-linear-to-r from-gray-700 to-slate-800" x-data="{ code: '' }">
-    <main class="h-full flex flex-col items-center px-23">
-        <div class="items-center flex flex-col px-[10%] py-[10%]">
-            <img class="h-64" src="https://cdn.discordapp.com/attachments/923282090861142016/1375110353368911912/Sahap_profile_pictrue_PNG.png?ex=68307ed0&is=682f2d50&hm=35202c04dfaf3120258eb2450e8a6332103dff3dbc2195fa753793a0c544ee48&" alt="">
-            <h1 class="text-5xl font-semibold text-gray-200">Tere, ma olen <span class="text-indigo-700">Ander</span>!</h1>   
-        </div>
-        <div class="py-10 flex flex-grow">
-            <input type="password" placeholder="Kood" x-model="code" class="block w-full p-2 text-gray-200 border border-gray-700 rounded-lg bg-gray-800 text-lg focus:ring-blue-500 focus:border-blue-500">
-            <div x-show="code === '32'" class="flex flex-grow items-center"><i class="fa-solid fa-shake fa-arrow-down ml-2 text-xl text-indigo-600"></i></div>
-        </div>
-        <div x-show="code === '32'" class="py-10">
-            <h1 class="text-2xl font-bold text-indigo-500 uppercase text-center">Portfoolio</h1>
+  <body class="bg-linear-to-r from-indigo-400 to-blue-400">
+    <main x-data="{ page:'tööturg', zoom: 1, zoomed: false, modalOpen: false, modalDic: '', modaltype: '', pptCacheBust: Date.now(), pptWatchTimer: null, isDragging: false, dragStartX: 0, dragStartY: 0, dragScrollLeft: 0, dragScrollTop: 0, pptStartWatch() { this.pptStopWatch(); this.pptWatchTimer = setInterval(() => { this.pptCacheBust = Date.now(); }, 5000); }, pptStopWatch() { if (this.pptWatchTimer) { clearInterval(this.pptWatchTimer); this.pptWatchTimer = null; } }, pptSrc() { const base = location.origin + '/' + this.modalDic; return 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(base) + '&wdAllowInteractivity=TRUE&wdDownloadButton=True&cb=' + this.pptCacheBust; } }" class="py-[3rem] items-center flex flex-col h-svh w-screen">
+          <h1 class="text-4xl text-gray-800">Ander Safronov</h1>
+          <h2 class="font-bold text-2xl text-gray-700">TA-25B</h2>
+          <h3 class="text-xl text-indigo-900">Õpimapp</h3>
+          
+          <div class="flex flex-grow max-h-12 gap-4 bg-indigo-500 px-2 mt-4 py-2 rounded-lg">
+            <div x-on:click="page='suhtlemisõpetus'" :class="page === 'suhtlemisõpetus' ? 'bg-indigo-900 text-white' : 'bg-indigo-700 text-indigo-100'" class="px-2 py-1 rounded-lg cursor-pointer">Suhtlemisõpetus</div>
+            <div x-on:click="page='minapilt'" :class="page === 'minapilt' ? 'bg-indigo-900 text-white' : 'bg-indigo-700 text-indigo-100'" class="px-2 py-1 rounded-lg cursor-pointer">Minapilt</div>
+            <div x-on:click="page='rahatarkus'" :class="page === 'rahatarkus' ? 'bg-indigo-900 text-white' : 'bg-indigo-700 text-indigo-100'" class="px-2 py-1 rounded-lg cursor-pointer">Rahatarkus</div>
+            <div x-on:click="page='keskkonnateadlikus'" :class="page === 'keskkonnateadlikus' ? 'bg-indigo-900 text-white' : 'bg-indigo-700 text-indigo-100'" class="px-2 py-1 rounded-lg cursor-pointer">Keskkonnateadlikus ja jätkusuutlik tarbimine</div>
+            <div x-on:click="page='tööturg'" :class="page === 'tööturg' ? 'bg-indigo-900 text-white' : 'bg-indigo-700 text-indigo-100'" class="px-2 py-1 rounded-lg cursor-pointer">Tööturg</div>
+            <div x-on:click="page='eesti_keel'" :class="page === 'eesti_keel' ? 'bg-indigo-900 text-white' : 'bg-indigo-700 text-indigo-100'" class="px-2 py-1 rounded-lg cursor-pointer">Eesti keel</div>
+            <div x-on:click="page='inglise_keel'" :class="page === 'inglise_keel' ? 'bg-indigo-900 text-white' : 'bg-indigo-700 text-indigo-100'" class="px-2 py-1 rounded-lg cursor-pointer">Inglise keel</div>
+            <div x-on:click="page='õpitee'" :class="page === 'õpitee' ? 'bg-indigo-900 text-white' : 'bg-indigo-700 text-indigo-100'" class="px-2 py-1 rounded-lg cursor-pointer">Õpitee</div>
+          </div>
 
-            <div class="grid grid-cols-2 gap-3">
-                <div class="">
-                    <span class="text-gray-200">FiveM platformi serveri proofili haldusleht</span>
-                    <img class="h-82 border-4 border-gray-900 rounded-lg" src="https://cdn.discordapp.com/attachments/1292116040850997380/1292117607012368426/image.png?ex=6830794b&is=682f27cb&hm=74401c4a0b1f4ff0e624c3decca2d0089f2b8915245b4e0a4e99598f20cb0007&" alt="">
-                </div>
-                <div class="">
-                    <span class="text-gray-200">FiveM platformi serveri puksiiritöö User Interface.</span>
-                    <img class="h-82 w-full border-4 border-gray-900 rounded-lg" src=" https://cdn.discordapp.com/attachments/1292116040850997380/1300620398580338729/image.png?ex=68306ce3&is=682f1b63&hm=94c150af20e27cf1a49f1304ec13898bda57a0ec8c2ccef9e889c7adeac19e37&" alt="">
-                </div>
-                <div class="">
-                    <span class="text-gray-200">Discord serveri logo ja rollide ikoonid.</span>
-                    <img class="h-82 border-4 border-gray-900 rounded-lg" src="https://cdn.discordapp.com/attachments/923282090861142016/1375107882777051157/image.png?ex=68307c83&is=682f2b03&hm=bf210a1d75f41823ee186b0ff4aa92f0df5a204b11f97f371924784f5413e93f&" alt="">
-                </div>
-                
-                <div class="">
-                    <span class="text-gray-200">Mänguclipide video.</span>
-                    <iframe class="w-full border-4 border-gray-900 rounded-lg" width="654" height="327" src="https://www.youtube.com/embed/-JPcmkc65MI?si=cDcD1RXhwF-ha5_A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div x-show="page==='suhtlemisõpetus'" class="mt-4 p-4 bg-gray-200 rounded-lg shadow-lg w-3/4 max-h-full overflow-y-auto">
+            <h2 class="text-2xl font-bold mb-4">Suhtlemisõpetus</h2>
+            <div>
+                <div class="flex flex-grow">
+                  <div class="flex px-4 py-2 bg-gray-400 rounded-lg text-xl font-semibold text-gray-700" @click="modalOpen = true; modaltype = 'document'; modalDic = 'suhtlemisõpetus/hääl.pdf'" :style="`cursor: pointer;`">
+                    Hea suhtleja plakat
+                  </div>
+                  <div class="flex px-4 py-2 bg-gray-400 rounded-lg text-xl font-semibold text-gray-700 ml-2" >
+                    <a href="https://technoee-my.sharepoint.com/:p:/g/personal/ander_safronov_techno_ee/IQAihOa4eDawSLjGxjQ8nF4fAWexKg3PwbEq0iZJ-ixknCQ?e=NZgB33" target="_blank">Iseseisva töö esitlus</a>
+                  </div>
                 </div>
             </div>
+            
+          </div>
+          <div x-show="page==='minapilt'" class="mt-4 p-4 bg-gray-200 rounded-lg shadow-lg w-3/4 max-h-96 overflow-y-auto">
+            <h2 class="text-2xl font-bold mb-4">Minapilt</h2>
+            <div>
+                <div class="flex flex-grow gap-2">
+                  <div class="flex px-4 py-2 bg-gray-400 rounded-lg text-xl font-semibold text-gray-700" @click="modalOpen = true; modaltype = 'document'; modalDic = 'minapilt/eesmärk.pdf'" :style="`cursor: pointer;`">
+                    Tööleht: Minu eesmärgid ja tugevused
+                  </div>
+                  <div class="flex px-4 py-2 bg-gray-400 rounded-lg text-xl font-semibold text-gray-700" @click="modalOpen = true; modaltype = 'image'; modalDic = 'minapilt/swotnõrk.jpg'" :style="`cursor: pointer;`">
+                    SWOT analüüs: Minu tugevused ja nõrkused
+                  </div>
+                   <div class="flex px-4 py-2 bg-gray-400 rounded-lg text-xl font-semibold text-gray-700" @click="modalOpen = true; modaltype = 'image'; modalDic = 'minapilt/swotnõrk.jpg'" :style="`cursor: pointer;`">
+                    SWOT analüüs: Minu eesmärgid <p class="text-red-700 ml-2"> (TEGEMATA)</p>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div x-show="page==='rahatarkus'" class="mt-4 p-4 bg-gray-200 rounded-lg shadow-lg w-3/4 max-h-96 overflow-y-auto">
+            <h2 class="text-2xl font-bold mb-4">Rahatarkus</h2>
+            <div>
+                <div class="flex flex-grow gap-2">
+                  <div class="flex px-4 py-2 bg-gray-400 rounded-lg text-xl font-semibold text-gray-700" @click="modalOpen = true; modaltype = 'document'; modalDic = 'minapilt/eesmärk.pdf'" :style="`cursor: pointer;`">
+                   Äriplaan
+                  </div>
+                  <div class="flex px-4 py-2 bg-gray-400 rounded-lg text-xl font-semibold text-gray-700" @click="modalOpen = true; modaltype = 'image'; modalDic = 'minapilt/swotnõrk.jpg'" :style="`cursor: pointer;`">
+                    SWOT analüüs äriplaanile
+                  </div>
+                   <div class="flex px-4 py-2 bg-gray-400 rounded-lg text-xl font-semibold text-gray-700" @click="modalOpen = true; modaltype = 'image'; modalDic = 'minapilt/swotnõrk.jpg'" :style="`cursor: pointer;`">
+                    Tööleht: Pere-eelarve <p class="text-red-700 ml-2"> (TEGEMATA)</p>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div x-show="page==='keskkonnateadlikus'" class="mt-4 p-4 bg-gray-200 rounded-lg shadow-lg w-3/4 max-h-96 overflow-y-auto">
+            <h2 class="text-2xl font-bold mb-4">Keskkonnateadlikus ja jätkusuutlik tarbimine</h2>
+            <div>
+                <div class="flex flex-grow gap-2">
+                  <div class="flex px-4 py-2 bg-gray-400 rounded-lg text-xl font-semibold text-gray-700" @click="modalOpen = true; modaltype = 'image'; modalDic = 'keskond/tarkvara.jpg'" :style="`cursor: pointer;`">
+                   SWOT analüüs: Tarkvaraarendaja
+                  </div>
+                  <div class="flex px-4 py-2 bg-gray-400 rounded-lg text-xl font-semibold text-gray-700" @click="modalOpen = true; modaltype = 'image'; modalDic = 'keskond/IT.jpg'" :style="`cursor: pointer;`">
+                    SWOT analüüs: IT süsteemide spetsialist
+                  </div>
+                   <div class="flex px-4 py-2 bg-gray-400 rounded-lg text-xl font-semibold text-gray-700" @click="modalOpen = true; modaltype = 'document'; modalDic = 'keskond/vastutus.pdf'" :style="`cursor: pointer;`">
+                    Tööleht: Vastutustundlik tarbimine
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div x-show="page==='tööturg'" class="mt-4 p-4 bg-gray-200 rounded-lg shadow-lg w-3/4 max-h-96 overflow-y-auto">
+            <h2 class="text-2xl font-bold mb-4">Tööturg</h2>
+            <div>
+                <div class="flex flex-grow gap-2">
+                  <div class="flex px-4 py-2 bg-gray-400 rounded-lg text-xl font-semibold text-gray-700" @click="modalOpen = true; modaltype = 'document'; modalDic = 'tööturg/CV.pdf'" :style="`cursor: pointer;`">
+                   CV
+                  </div>
+                  <div class="flex px-4 py-2 bg-gray-400 rounded-lg text-xl font-semibold text-gray-700" @click="modalOpen = true; modaltype = 'document'; modalDic = 'tööturg/Motivatsioonikiri.pdf'" :style="`cursor: pointer;`">
+                    Motivatsioonikiri
+                  </div>
+                   <div class="flex px-4 py-2 bg-gray-400 rounded-lg text-xl font-semibold text-gray-700" @click="modalOpen = true; modaltype = 'document'; modalDic = 'tööturg/Kaasakiri.pdf'" :style="`cursor: pointer;`">
+                   Kaaskiri
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div x-show="page==='eesti_keel'" class="mt-4 p-4 bg-gray-200 rounded-lg shadow-lg w-3/4 max-h-96 overflow-y-auto">
+            <h2 class="text-2xl font-bold mb-4">Eesti keel</h2>
+            <img @click="modalOpen = true; modaltype = 'image'; modalImage = 'https://via.placeholder.com/400x300?text=Eesti+keel'" :style="`cursor: pointer;`" src="https://via.placeholder.com/400x300?text=Eesti+keel" alt="Eesti keel" class="rounded-lg mb-4 w-full hover:opacity-80 transition">
+            <div class="space-y-2">
+              <p class="font-semibold">📄 Dokumendid:</p>
+              <div class="bg-white p-2 rounded border border-gray-300">Document 1</div>
+              <div class="bg-white p-2 rounded border border-gray-300">Document 2</div>
+            </div>
+          </div>
+          <div x-show="page==='inglise_keel'" class="mt-4 p-4 bg-gray-200 rounded-lg shadow-lg w-3/4 max-h-96 overflow-y-auto">
+            <h2 class="text-2xl font-bold mb-4">Inglise keel</h2>
+            <img @click="modalOpen = true; modaltype = 'image'; modalImage = 'https://via.placeholder.com/400x300?text=Inglise+keel'" :style="`cursor: pointer;`" src="https://via.placeholder.com/400x300?text=Inglise+keel" alt="Inglise keel" class="rounded-lg mb-4 w-full hover:opacity-80 transition">
+            <div class="space-y-2">
+              <p class="font-semibold">📄 Dokumendid:</p>
+              <div class="bg-white p-2 rounded border border-gray-300">Document 1</div>
+              <div class="bg-white p-2 rounded border border-gray-300">Document 2</div>
+            </div>
+          </div>
+          <div x-show="page==='õpitee'" class="mt-4 p-4 bg-gray-200 rounded-lg shadow-lg w-3/4 max-h-96 overflow-y-auto">
+            <h2 class="text-2xl font-bold mb-4">Õpitee</h2>
+            <img @click="modalOpen = true; modaltype = 'image'; modalImage = 'https://via.placeholder.com/400x300?text=Õpitee'" :style="`cursor: pointer;`" src="https://via.placeholder.com/400x300?text=Õpitee" alt="Õpitee" class="rounded-lg mb-4 w-full hover:opacity-80 transition">
+            <div class="space-y-2">
+              <p class="font-semibold">📄 Dokumendid:</p>
+              <div class="bg-white p-2 rounded border border-gray-300">Document 1</div>
+              <div class="bg-white p-2 rounded border border-gray-300">Document 2</div>
+            </div>
+          </div>
 
-        </div>
-        
+          <!-- Modal -->
+          <div x-show="modalOpen" @click.self="modalOpen = false" class="fixed inset-0 bg-gray-900/60 flex items-center justify-center z-50">
+            <div class="bg-white border-2 rounded-lg shadow-xl w-11/12 h-5/6 relative">
+              <button @click="modalOpen = false" class="fixed top-10 right-16 bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 z-50">✕ Sulge</button>
+              <div x-show="modaltype === 'image'" class="w-full h-full flex flex-col overflow-hidden">
+                <div class="flex gap-2 p-2 z-10 bg-white border-b">
+                  <button @click="zoom = Math.max(0.25, zoom - 0.2)" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">−</button>
+                  <span class="px-3 py-1 bg-gray-300 rounded" x-text="`${(zoom * 100).toFixed(0)}%`"></span>
+                  <button @click="zoom = Math.min(4, zoom + 0.2)" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">+</button>
+                  <button @click="zoom = 1" class="px-3 py-1 bg-gray-500 text-white rounded hover:bg-gray-600">Reset</button>
+                </div>
+                <div class="flex-1 overflow-auto w-full flex justify-center" 
+                  @mousedown="isDragging = true; dragStartX = $event.clientX; dragStartY = $event.clientY; dragScrollLeft = $el.scrollLeft; dragScrollTop = $el.scrollTop"
+                  @mousemove="if (isDragging) { $el.scrollLeft = dragScrollLeft - ($event.clientX - dragStartX); $el.scrollTop = dragScrollTop - ($event.clientY - dragStartY); }"
+                  @mouseup="isDragging = false"
+                  @mouseleave="isDragging = false"
+                  x-effect="$el.scrollTop = 0; $el.scrollLeft = ($el.scrollWidth - $el.clientWidth) / 2"
+                  :style="`cursor: ${isDragging ? 'grabbing' : 'grab'};`">
+                  <img @click="zoom = zoom === 1 ? 1.5 : 1" :src="modalDic" alt="Modal image" :style="`transform: scale(${zoom}); cursor: zoom-in; transition: transform 0.2s; user-select: none; margin: auto;`" class="object-contain">
+                </div>
+              </div>
+              <div x-show="modaltype === 'document'" class="w-full h-full overflow-auto">
+                <iframe :src="modalDic" class="w-full h-full border-0"></iframe>
+              </div>
+              <div x-show="modaltype === 'powerpoint'" class="w-full h-full overflow-auto">
+                <iframe :src="pptSrc()" class="w-full h-full" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
     </main>
+          <!-- PPT Watch Effect -->
+          <div x-effect="if (modalOpen && modaltype==='powerpoint') { pptStartWatch() } else { pptStopWatch() }"></div>
     <script src="index.js"></script>
   </body>
 </html>
